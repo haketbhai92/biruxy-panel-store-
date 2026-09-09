@@ -2,748 +2,729 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BIRUXY DIGITAL SHOP</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,sans-serif;
-}
-
-body{
-    background:#080808;
-    color:white;
-}
-
-header{
-    background:#111;
-    border-bottom:1px solid #292929;
-    padding:18px 6%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-    position:sticky;
-    top:0;
-    z-index:10;
-}
-
-.logo{
-    color:#ff1e1e;
-    font-size:22px;
-    font-weight:bold;
-}
-
-nav{
-    display:flex;
-    gap:10px;
-    align-items:center;
-}
-
-button{
-    cursor:pointer;
-}
-
-.navbtn{
-    background:#191919;
-    border:1px solid #333;
-    color:white;
-    padding:10px 15px;
-    border-radius:8px;
-}
-
-.navbtn:hover{
-    border-color:#ff2020;
-}
-
-.hero{
-    text-align:center;
-    padding:55px 20px 35px;
-}
-
-.hero h1{
-    font-size:42px;
-    color:#ff2424;
-}
-
-.hero p{
-    color:#aaa;
-    margin-top:12px;
-}
-
-.searchbox{
-    width:90%;
-    max-width:700px;
-    margin:20px auto;
-}
-
-.searchbox input{
-    width:100%;
-    padding:15px;
-    border-radius:10px;
-    border:1px solid #333;
-    background:#111;
-    color:white;
-    outline:none;
-}
-
-.products{
-    width:92%;
-    max-width:1200px;
-    margin:30px auto 60px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#111;
-    border:1px solid #292929;
-    border-radius:15px;
-    padding:20px;
-    transition:.2s;
-}
-
-.card:hover{
-    transform:translateY(-3px);
-    border-color:#ff2020;
-}
-
-.card h3{
-    color:#fff;
-    margin-bottom:10px;
-}
-
-.type{
-    color:#999;
-    font-size:14px;
-    min-height:20px;
-}
-
-.prices{
-    margin:18px 0;
-    line-height:2;
-}
-
-.price{
-    color:#ff3636;
-    font-weight:bold;
-}
-
-.buy{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:9px;
-    background:#e71919;
-    color:white;
-    font-weight:bold;
-}
-
-.buy:hover{
-    background:#ff3030;
-}
-
-/* modal */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.8);
-    z-index:100;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-}
-
-.modalbox{
-    width:100%;
-    max-width:420px;
-    background:#111;
-    border:1px solid #333;
-    border-radius:15px;
-    padding:25px;
-}
-
-.modalbox h2{
-    margin-bottom:18px;
-    color:#ff2929;
-}
-
-.close{
-    float:right;
-    background:none;
-    border:none;
-    color:#aaa;
-    font-size:24px;
-}
-
-.plan{
-    width:100%;
-    margin:8px 0;
-    padding:13px;
-    background:#191919;
-    border:1px solid #333;
-    color:white;
-    border-radius:8px;
-    text-align:left;
-}
-
-.plan:hover{
-    border-color:#ff2222;
-}
-
-.form input{
-    width:100%;
-    padding:13px;
-    margin:7px 0;
-    background:#0b0b0b;
-    border:1px solid #333;
-    border-radius:8px;
-    color:white;
-}
-
-.form button{
-    width:100%;
-    padding:13px;
-    margin-top:8px;
-    border:0;
-    border-radius:8px;
-    background:#e71919;
-    color:white;
-    font-weight:bold;
-}
-
-.switch{
-    text-align:center;
-    margin-top:15px;
-    color:#aaa;
-}
-
-.switch span{
-    color:#ff3030;
-    cursor:pointer;
-}
-
-.userinfo{
-    display:none;
-    color:#ddd;
-    font-size:14px;
-}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial}
+body{background:#070707;color:#fff}
+button{cursor:pointer}
+header{height:70px;background:#111;border-bottom:1px solid #292929;display:flex;align-items:center;justify-content:space-between;padding:0 5%;position:sticky;top:0;z-index:20}
+.logo{font-size:22px;font-weight:bold;color:#ff2020}
+nav{display:flex;gap:8px}
+.btn{background:#181818;color:#fff;border:1px solid #333;padding:10px 15px;border-radius:8px}
+.btn:hover{border-color:#f22}
+#shop{display:none}
+.hero{text-align:center;padding:55px 20px 30px}
+.hero h1{font-size:40px;color:#f22}
+.hero p{color:#aaa;margin-top:10px}
+.search{max-width:700px;margin:10px auto 30px;padding:0 20px}
+.search input{width:100%;padding:14px;background:#111;color:white;border:1px solid #333;border-radius:9px}
+.products{max-width:1200px;width:92%;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;padding-bottom:50px}
+.card{background:#111;border:1px solid #292929;border-radius:14px;padding:20px}
+.card:hover{border-color:#f22}
+.card h3{margin-bottom:10px}
+.type{font-size:13px;color:#999}
+.prices{margin:15px 0;line-height:2}
+.price{color:#ff3030;font-weight:bold}
+.buy{width:100%;background:#e71919;color:#fff;border:0;border-radius:8px;padding:12px;font-weight:bold}
+.modal{display:none;position:fixed;inset:0;background:#000c;align-items:center;justify-content:center;z-index:100;padding:20px}
+.box{width:100%;max-width:430px;background:#111;border:1px solid #333;border-radius:15px;padding:25px}
+.close{float:right;background:none;border:0;color:#aaa;font-size:25px}
+.box h2{color:#f22;margin-bottom:18px}
+.input{width:100%;padding:13px;margin:6px 0;background:#080808;border:1px solid #333;border-radius:8px;color:#fff}
+.red{width:100%;padding:13px;margin-top:8px;background:#e71919;color:#fff;border:0;border-radius:8px;font-weight:bold}
+.switch{text-align:center;color:#999;margin-top:15px}
+.switch span{color:#f33;cursor:pointer}
+.plan{display:block;width:100%;padding:13px;margin:8px 0;background:#181818;color:#fff;border:1px solid #333;border-radius:8px;text-align:left}
+.plan:hover{border-color:#f22}
+.qr{text-align:center;margin:15px 0}
+.qr img{width:220px;height:220px;background:white;padding:8px}
+.upi{text-align:center;color:#aaa;margin:8px}
+.info{text-align:center;color:#aaa;line-height:1.8}
+.adminOrder{background:#181818;border:1px solid #333;border-radius:10px;padding:15px;margin:10px 0}
+.adminOrder button{padding:8px 12px;border:0;border-radius:6px;margin:5px 5px 0 0}
+.approve{background:#16a34a;color:white}
+.reject{background:#dc2626;color:white}
+.keybox{background:#090909;border:1px dashed #f22;padding:15px;margin-top:15px;text-align:center;color:#ff3030;font-weight:bold}
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">BIRUXY DIGITAL SHOP</div>
-
-    <nav>
-        <button class="navbtn" onclick="openLogin()">LOGIN</button>
-        <button class="navbtn" onclick="openRegister()">REGISTER</button>
-        <button class="navbtn" onclick="logout()">LOGOUT</button>
-    </nav>
+<div class="logo">BIRUXY DIGITAL SHOP</div>
+<nav>
+<button class="btn" onclick="openLogin()">LOGIN</button>
+<button class="btn" onclick="openRegister()">REGISTER</button>
+<button class="btn" onclick="showMyKey()">MY KEY</button>
+<button class="btn" onclick="openAdmin()">ADMIN</button>
+<button class="btn" onclick="logout()">LOGOUT</button>
+</nav>
 </header>
 
+<div id="loginPage">
 <section class="hero">
-    <h1>BIRUXY DIGITAL SHOP</h1>
-    <p>Premium Digital Products</p>
+<h1>BIRUXY DIGITAL SHOP</h1>
+<p>Login to continue</p>
 </section>
 
-<div class="searchbox">
-    <input
-        type="text"
-        id="search"
-        placeholder="Search product..."
-        oninput="searchProducts()"
-    >
+<div class="box" style="margin:20px auto">
+<h2>Login</h2>
+<input class="input" id="loginUser" placeholder="Username">
+<input class="input" id="loginPass" type="password" placeholder="Password">
+<button class="red" onclick="login()">LOGIN</button>
+<div class="switch">New user? <span onclick="openRegister()">Register</span></div>
+</div>
 </div>
 
-<section class="products" id="products"></section>
+<div id="shop">
 
+<section class="hero">
+<h1>BIRUXY DIGITAL SHOP</h1>
+<p>Premium Digital Products</p>
+</section>
 
-<!-- LOGIN -->
+<div class="search">
+<input id="search" placeholder="Search product..." oninput="renderProducts()">
+</div>
 
-<div class="modal" id="loginModal">
-    <div class="modalbox">
+<div class="products" id="products"></div>
 
-        <button class="close" onclick="closeAll()">×</button>
-
-        <h2>Login</h2>
-
-        <div class="form">
-
-            <input
-                type="text"
-                id="loginUsername"
-                placeholder="Username"
-            >
-
-            <input
-                type="password"
-                id="loginPassword"
-                placeholder="Password"
-            >
-
-            <button onclick="login()">LOGIN</button>
-
-        </div>
-
-        <div class="switch">
-            Don't have an account?
-            <span onclick="openRegister()">Register</span>
-        </div>
-
-    </div>
 </div>
 
 
 <!-- REGISTER -->
 
 <div class="modal" id="registerModal">
-    <div class="modalbox">
+<div class="box">
+<button class="close" onclick="closeModals()">×</button>
+<h2>New Register</h2>
 
-        <button class="close" onclick="closeAll()">×</button>
+<input class="input" id="regUser" placeholder="Username">
+<input class="input" id="regPass" type="password" placeholder="Password">
+<input class="input" id="regConfirm" type="password" placeholder="Confirm Password">
 
-        <h2>New Register</h2>
+<button class="red" onclick="register()">REGISTER</button>
 
-        <div class="form">
-
-            <input
-                type="text"
-                id="registerUsername"
-                placeholder="Create username"
-            >
-
-            <input
-                type="password"
-                id="registerPassword"
-                placeholder="Create password"
-            >
-
-            <input
-                type="password"
-                id="registerConfirm"
-                placeholder="Confirm password"
-            >
-
-            <button onclick="register()">REGISTER</button>
-
-        </div>
-
-        <div class="switch">
-            Already have account?
-            <span onclick="openLogin()">Login</span>
-        </div>
-
-    </div>
+<div class="switch">
+Already registered?
+<span onclick="openLogin()">Login</span>
+</div>
+</div>
 </div>
 
 
-<!-- PRODUCT MODAL -->
+<!-- LOGIN -->
+
+<div class="modal" id="loginModal">
+<div class="box">
+<button class="close" onclick="closeModals()">×</button>
+<h2>Login</h2>
+
+<input class="input" id="modalUser" placeholder="Username">
+<input class="input" id="modalPass" type="password" placeholder="Password">
+
+<button class="red" onclick="modalLogin()">LOGIN</button>
+
+<div class="switch">
+New user?
+<span onclick="openRegister()">Register</span>
+</div>
+</div>
+</div>
+
+
+<!-- PRODUCT -->
 
 <div class="modal" id="productModal">
-    <div class="modalbox">
+<div class="box">
+<button class="close" onclick="closeModals()">×</button>
 
-        <button class="close" onclick="closeAll()">×</button>
+<h2 id="productTitle"></h2>
 
-        <h2 id="selectedProduct"></h2>
+<button class="plan" id="day1"></button>
+<button class="plan" id="day3"></button>
+<button class="plan" id="day7"></button>
 
-        <button class="plan" id="p1"></button>
-        <button class="plan" id="p3"></button>
-        <button class="plan" id="p7"></button>
+<div id="payment" style="display:none">
 
-    </div>
+<div class="qr">
+<img id="qr">
+</div>
+
+<div class="upi">
+UPI ID:<br>
+<b>shabablegend808@oksbi</b>
+</div>
+
+<button class="red" onclick="paid()">I HAVE PAID</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- MY KEY -->
+
+<div class="modal" id="keyModal">
+<div class="box">
+<button class="close" onclick="closeModals()">×</button>
+<h2>MY KEY</h2>
+<div id="myKeyContent" class="info">Loading...</div>
+</div>
+</div>
+
+
+<!-- ADMIN -->
+
+<div class="modal" id="adminModal">
+<div class="box" style="max-width:700px">
+<button class="close" onclick="closeModals()">×</button>
+
+<h2>ADMIN PANEL</h2>
+
+<input class="input" id="adminPass" type="password" placeholder="Admin Password">
+
+<button class="red" onclick="adminLogin()">ADMIN LOGIN</button>
+
+<div id="adminOrders"></div>
+
+</div>
 </div>
 
 
 <script>
 
-const products = [
+const products=[
 
-{
-name:"Paradox",
-type:"Root / Non-Root",
-d1:99,d3:199,d7:349
-},
-
-{
-name:"Rapid Core",
-type:"Root / Non-Root",
-d1:109,d3:209,d7:359
-},
-
-{
-name:"Drip Client",
-type:"Non-Root",
-d1:89,d3:189,d7:339
-},
-
-{
-name:"Drip Client",
-type:"Root",
-d1:105,d3:205,d7:355
-},
-
-{
-name:"Drip Proxy",
-type:"Root / Non-Root",
-d1:95,d3:195,d7:345
-},
-
-{
-name:"Invisible Mods",
-type:"Root",
-d1:110,d3:220,d7:380
-},
-
-{
-name:"BR Mods",
-type:"Root / Non-Root",
-d1:102,d3:202,d7:352
-},
-
-{
-name:"Hexxx Cher",
-type:"Root",
-d1:98,d3:198,d7:348
-},
-
-{
-name:"HG Cheats",
-type:"Root / Non-Root",
-d1:108,d3:218,d7:368
-},
-
-{
-name:"Hex Blaze",
-type:"Root / Non-Root",
-d1:104,d3:214,d7:364
-},
-
-{
-name:"Bhikari Mods",
-type:"Root / Non-Root",
-d1:96,d3:196,d7:346
-},
-
-{
-name:"Neo Strike",
-type:"Root",
-d1:109,d3:229,d7:389
-},
-
-{
-name:"Reaper X Proo",
-type:"Root",
-d1:110,d3:230,d7:390
-},
-
-{
-name:"LK Team",
-type:"Root / Non-Root",
-d1:101,d3:211,d7:361
-},
-
-{
-name:"Angry Mods",
-type:"Root",
-d1:107,d3:217,d7:367
-},
-
-{
-name:"XYZ",
-type:"Non-Root",
-d1:90,d3:180,d7:330
-},
-
-{
-name:"Kos Mods",
-type:"Root",
-d1:106,d3:216,d7:366
-},
-
-{
-name:"GBox eSign",
-type:"Root / Non-Root",
-d1:99,d3:209,d7:359
-},
-
-{
-name:"SBK Mods",
-type:"Root",
-d1:103,d3:213,d7:363
-},
-
-{
-name:"Shadow X",
-type:"Root",
-d1:109,d3:229,d7:389
-},
-
-{
-name:"Pato Team",
-type:"Non-Root / Non-Root",
-d1:94,d3:194,d7:344
-},
-
-{
-name:"Silent Cheat",
-type:"Root",
-d1:108,d3:228,d7:388
-},
-
-{
-name:"Prime Hook",
-type:"Non-Root",
-d1:100,d3:200,d7:350
-}
+["Paradox","Root/Non-Root",99,199,349],
+["Rapid Core","Root/Non-Root",109,209,359],
+["Drip Client","Non-Root",89,189,339],
+["Drip Client","Root",105,205,355],
+["Drip Proxy","",95,195,345],
+["Invisible Mods","Root",110,220,380],
+["BR Mods","Root/Non-Root",102,202,352],
+["Hexxx Cher","Root",98,198,348],
+["HG Cheats","Root/Non-Root",108,218,368],
+["Hex Blaze","Root/Non-Root",104,214,364],
+["Bhikari Mods","Root/Non-Root",96,196,346],
+["Neo Strike","Root",109,229,389],
+["Reaper X Proo","Root",110,230,390],
+["LK Team","Root/Non-Root",101,211,361],
+["Angry Mods","Root",107,217,367],
+["XYZ","Non-Root",90,180,330],
+["Kos Mods","Root",106,216,366],
+["GBox eSign","Root/Non-Root",99,209,359],
+["SBK Mods","Root",103,213,363],
+["Shadow X","Root",109,229,389],
+["Pato Team","Non-Root/Non-Root",94,194,344],
+["Silent Cheat","Root",108,228,388],
+["Prime Hook","Non-Root",100,200,350]
 
 ];
 
+let selectedProduct=null;
+let selectedPrice=0;
+let selectedPlan="";
+let currentUser=localStorage.getItem("biruxyUser");
 
-function displayProducts(list=products){
 
-    const container=document.getElementById("products");
+function renderProducts(){
 
-    container.innerHTML="";
+const search=(document.getElementById("search")?.value||"").toLowerCase();
 
-    list.forEach((p,index)=>{
+const box=document.getElementById("products");
 
-        container.innerHTML += `
+box.innerHTML="";
 
-        <div class="card">
+products.forEach((p,i)=>{
 
-            <h3>${p.name}</h3>
+if(!(p[0]+" "+p[1]).toLowerCase().includes(search))return;
 
-            <div class="type">${p.type}</div>
+box.innerHTML+=`
 
-            <div class="prices">
+<div class="card">
 
-                1 Day:
-                <span class="price">₹${p.d1}</span>
-                <br>
+<h3>${p[0]}</h3>
 
-                3 Days:
-                <span class="price">₹${p.d3}</span>
-                <br>
+<div class="type">${p[1]}</div>
 
-                7 Days:
-                <span class="price">₹${p.d7}</span>
+<div class="prices">
+1 Day: <span class="price">₹${p[2]}</span><br>
+3 Days: <span class="price">₹${p[3]}</span><br>
+7 Days: <span class="price">₹${p[4]}</span>
+</div>
 
-            </div>
+<button class="buy" onclick="openProduct(${i})">
+BUY NOW
+</button>
 
-            <button
-                class="buy"
-                onclick="openProduct(${index})"
-            >
-                BUY NOW
-            </button>
+</div>
 
-        </div>
+`;
 
-        `;
-
-    });
+});
 
 }
 
 
-function searchProducts(){
+function openProduct(i){
 
-    const text=
-        document.getElementById("search")
-        .value
-        .toLowerCase();
+selectedProduct=products[i];
 
-    const result=products.filter(p=>
-        (p.name+" "+p.type)
-        .toLowerCase()
-        .includes(text)
-    );
+document.getElementById("productTitle").innerText=
+selectedProduct[0];
 
-    displayProducts(result);
+document.getElementById("day1").innerText=
+"1 Day — ₹"+selectedProduct[2];
+
+document.getElementById("day3").innerText=
+"3 Days — ₹"+selectedProduct[3];
+
+document.getElementById("day7").innerText=
+"7 Days — ₹"+selectedProduct[4];
+
+document.getElementById("payment").style.display="none";
+
+document.getElementById("productModal").style.display="flex";
+
+document.getElementById("day1").onclick=()=>selectPlan("1 Day",selectedProduct[2]);
+document.getElementById("day3").onclick=()=>selectPlan("3 Days",selectedProduct[3]);
+document.getElementById("day7").onclick=()=>selectPlan("7 Days",selectedProduct[4]);
+
 }
 
 
-function openProduct(index){
+function selectPlan(plan,price){
 
-    const p=products[index];
+selectedPlan=plan;
+selectedPrice=price;
 
-    document.getElementById("selectedProduct")
-        .innerText=p.name;
+const upi=
+"upi://pay?pa=shabablegend808@oksbi"+
+"&pn=BIRUXY%20DIGITAL%20SHOP"+
+"&am="+price+
+"&cu=INR";
 
-    document.getElementById("p1")
-        .innerText="1 Day — ₹"+p.d1;
+document.getElementById("qr").src=
+"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+
+encodeURIComponent(upi);
 
-    document.getElementById("p3")
-        .innerText="3 Days — ₹"+p.d3;
+document.getElementById("payment").style.display="block";
 
-    document.getElementById("p7")
-        .innerText="7 Days — ₹"+p.d7;
-
-    document.getElementById("productModal")
-        .style.display="flex";
 }
 
 
-function openLogin(){
+async function paid(){
 
-    closeAll();
+if(!currentUser){
 
-    document.getElementById("loginModal")
-        .style.display="flex";
+alert("Pehle login karo");
+return;
+
 }
 
+const orderId=
+"BRX-"+Date.now().toString(36).toUpperCase();
 
-function openRegister(){
+const res=await fetch("/api/orders",{
 
-    closeAll();
+method:"POST",
 
-    document.getElementById("registerModal")
-        .style.display="flex";
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+orderId,
+username:currentUser,
+product:selectedProduct[0],
+type:selectedProduct[1],
+plan:selectedPlan,
+price:selectedPrice
+
+})
+
+});
+
+const data=await res.json();
+
+if(data.success){
+
+alert(
+"Order submitted!\n\nOrder ID: "+
+orderId+
+"\n\nAdmin approval ke baad My Key me milega."
+);
+
+closeModals();
+
+}else{
+
+alert(data.message||"Order error");
+
 }
-
-
-function closeAll(){
-
-    document.querySelectorAll(".modal")
-        .forEach(m=>m.style.display="none");
 
 }
 
 
 async function register(){
 
-    const username=
-        document.getElementById("registerUsername").value.trim();
+const username=document.getElementById("regUser").value.trim();
+const password=document.getElementById("regPass").value;
+const confirm=document.getElementById("regConfirm").value;
 
-    const password=
-        document.getElementById("registerPassword").value;
+if(!username||!password){
 
-    const confirm=
-        document.getElementById("registerConfirm").value;
+alert("Username aur password enter karo");
+return;
 
-    if(!username || !password){
+}
 
-        alert("Username aur password enter karo");
+if(password!==confirm){
 
-        return;
-    }
+alert("Password match nahi hai");
+return;
 
-    if(password!==confirm){
+}
 
-        alert("Password match nahi kar raha");
+const res=await fetch("/api/register",{
 
-        return;
-    }
+method:"POST",
 
-    try{
+headers:{"Content-Type":"application/json"},
 
-        const response=await fetch("/api/register",{
+body:JSON.stringify({username,password})
 
-            method:"POST",
+});
 
-            headers:{
-                "Content-Type":"application/json"
-            },
+const data=await res.json();
 
-            body:JSON.stringify({
-                username,
-                password
-            })
+alert(data.message);
 
-        });
+if(data.success){
 
-        const data=await response.json();
+closeModals();
 
-        alert(data.message);
+openLogin();
 
-        if(data.success){
+}
 
-            closeAll();
+}
 
-        }
 
-    }catch(error){
+async function loginRequest(username,password){
 
-        alert("Server error");
+const res=await fetch("/api/login",{
 
-    }
+method:"POST",
+
+headers:{"Content-Type":"application/json"},
+
+body:JSON.stringify({username,password})
+
+});
+
+return await res.json();
 
 }
 
 
 async function login(){
 
-    const username=
-        document.getElementById("loginUsername").value.trim();
+const u=document.getElementById("loginUser").value.trim();
+const p=document.getElementById("loginPass").value;
 
-    const password=
-        document.getElementById("loginPassword").value;
+const data=await loginRequest(u,p);
 
-    if(!username || !password){
+if(data.success){
 
-        alert("Username aur password enter karo");
+currentUser=u;
+localStorage.setItem("biruxyUser",u);
 
-        return;
-    }
+showShop();
 
-    try{
+}else{
 
-        const response=await fetch("/api/login",{
+alert(data.message);
 
-            method:"POST",
+}
 
-            headers:{
-                "Content-Type":"application/json"
-            },
+}
 
-            body:JSON.stringify({
-                username,
-                password
-            })
 
-        });
+async function modalLogin(){
 
-        const data=await response.json();
+const u=document.getElementById("modalUser").value.trim();
+const p=document.getElementById("modalPass").value;
 
-        alert(data.message);
+const data=await loginRequest(u,p);
 
-        if(data.success){
+if(data.success){
 
-            localStorage.setItem(
-                "biruxyUser",
-                username
-            );
+currentUser=u;
+localStorage.setItem("biruxyUser",u);
 
-            closeAll();
+closeModals();
+showShop();
 
-        }
+}else{
 
-    }catch(error){
+alert(data.message);
 
-        alert("Server error");
+}
 
-    }
+}
+
+
+function showShop(){
+
+document.getElementById("loginPage").style.display="none";
+document.getElementById("shop").style.display="block";
+
+renderProducts();
+
+}
+
+
+function openLogin(){
+
+closeModals();
+
+document.getElementById("loginModal").style.display="flex";
+
+}
+
+
+function openRegister(){
+
+closeModals();
+
+document.getElementById("registerModal").style.display="flex";
+
+}
+
+
+function closeModals(){
+
+document.querySelectorAll(".modal")
+.forEach(x=>x.style.display="none");
 
 }
 
 
 function logout(){
 
-    localStorage.removeItem("biruxyUser");
+localStorage.removeItem("biruxyUser");
 
-    alert("Logout successful");
+currentUser=null;
+
+location.reload();
 
 }
 
 
-displayProducts();
+async function showMyKey(){
+
+if(!currentUser){
+
+openLogin();
+return;
+
+}
+
+document.getElementById("keyModal").style.display="flex";
+
+const res=await fetch(
+"/api/mykey?username="+
+encodeURIComponent(currentUser)
+);
+
+const data=await res.json();
+
+const box=document.getElementById("myKeyContent");
+
+if(!data.orders.length){
+
+box.innerHTML="Abhi koi approved order nahi hai.";
+
+return;
+
+}
+
+box.innerHTML="";
+
+data.orders.forEach(o=>{
+
+box.innerHTML+=`
+
+<div class="adminOrder">
+
+<b>${o.product}</b><br>
+${o.plan} — ₹${o.price}<br>
+Order ID: ${o.orderId}
+
+${o.key ? `
+<div class="keybox">
+MY KEY<br><br>
+${o.key}
+</div>
+` :
+"<br><span style='color:#aaa'>Pending approval</span>"
+}
+
+</div>
+
+`;
+
+});
+
+}
+
+
+function openAdmin(){
+
+closeModals();
+
+document.getElementById("adminModal").style.display="flex";
+
+}
+
+
+async function adminLogin(){
+
+const password=document.getElementById("adminPass").value;
+
+const res=await fetch("/api/admin/orders",{
+
+headers:{
+"admin-password":password
+}
+
+});
+
+const data=await res.json();
+
+if(!data.success){
+
+alert(data.message);
+return;
+
+}
+
+const box=document.getElementById("adminOrders");
+
+box.innerHTML="";
+
+if(!data.orders.length){
+
+box.innerHTML="<p>No orders yet.</p>";
+return;
+
+}
+
+data.orders.forEach(o=>{
+
+box.innerHTML+=`
+
+<div class="adminOrder">
+
+<b>${o.product}</b><br>
+
+User: ${o.username}<br>
+Plan: ${o.plan}<br>
+Price: ₹${o.price}<br>
+Order ID: ${o.orderId}<br>
+Status: ${o.status}
+
+<br>
+
+<button class="approve"
+onclick="approveOrder('${o.orderId}','${password}')">
+APPROVE
+</button>
+
+<button class="reject"
+onclick="rejectOrder('${o.orderId}','${password}')">
+REJECT
+</button>
+
+${o.key?
+`<div class="keybox">${o.key}</div>`:""}
+
+</div>
+
+`;
+
+});
+
+}
+
+
+async function approveOrder(id,password){
+
+const res=await fetch("/api/admin/approve",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"admin-password":password
+},
+
+body:JSON.stringify({orderId:id})
+
+});
+
+const data=await res.json();
+
+alert(data.message);
+
+if(data.success){
+
+adminLogin();
+
+}
+
+}
+
+
+async function rejectOrder(id,password){
+
+const res=await fetch("/api/admin/reject",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json",
+"admin-password":password
+},
+
+body:JSON.stringify({orderId:id})
+
+});
+
+const data=await res.json();
+
+alert(data.message);
+
+if(data.success){
+
+adminLogin();
+
+}
+
+}
+
+
+if(currentUser){
+
+showShop();
+
+}
 
 </script>
 
