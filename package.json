@@ -1,7 +1,7 @@
 {
   "name": "biruxy-digital-shop",
   "version": "1.0.0",
-  "description": "BIRUXY Digital Shop",
+  "description": "BIRUXY DIGITAL SHOP",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
