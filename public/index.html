@@ -6,10 +6,14 @@
 <title>BIRUXY DIGITAL SHOP</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
 
 body{
-    font-family:Arial,sans-serif;
     background:#080808;
     color:white;
 }
@@ -19,82 +23,79 @@ header{
     border-bottom:1px solid #292929;
     padding:18px 6%;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
 .logo{
-    font-size:21px;
+    color:#ff1e1e;
+    font-size:22px;
     font-weight:bold;
 }
 
-.logo span{
-    color:#ff2020;
+nav{
+    display:flex;
+    gap:10px;
+    align-items:center;
 }
 
-nav button{
-    background:none;
-    border:0;
-    color:white;
-    margin-left:15px;
+button{
     cursor:pointer;
 }
 
-nav button:hover{
-    color:#ff2020;
+.navbtn{
+    background:#191919;
+    border:1px solid #333;
+    color:white;
+    padding:10px 15px;
+    border-radius:8px;
 }
 
-.container{
-    width:90%;
-    max-width:1100px;
-    margin:auto;
+.navbtn:hover{
+    border-color:#ff2020;
 }
 
 .hero{
     text-align:center;
-    padding:70px 10px 45px;
+    padding:55px 20px 35px;
 }
 
 .hero h1{
-    font-size:44px;
-}
-
-.hero h1 span{
-    color:#ff2020;
+    font-size:42px;
+    color:#ff2424;
 }
 
 .hero p{
-    color:#999;
+    color:#aaa;
     margin-top:12px;
 }
 
-.search{
-    display:flex;
-    gap:10px;
-    margin-bottom:30px;
+.searchbox{
+    width:90%;
+    max-width:700px;
+    margin:20px auto;
 }
 
-.search input,
-.search select{
-    background:#151515;
-    color:white;
+.searchbox input{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
     border:1px solid #333;
-    padding:13px;
-    border-radius:8px;
-}
-
-.search input{
-    flex:1;
-}
-
-.search select{
-    width:180px;
+    background:#111;
+    color:white;
+    outline:none;
 }
 
 .products{
+    width:92%;
+    max-width:1200px;
+    margin:30px auto 60px;
     display:grid;
-    grid-template-columns:
-    repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:20px;
 }
 
@@ -103,153 +104,135 @@ nav button:hover{
     border:1px solid #292929;
     border-radius:15px;
     padding:20px;
+    transition:.2s;
 }
 
 .card:hover{
+    transform:translateY(-3px);
     border-color:#ff2020;
 }
 
-.icon{
-    height:120px;
-    background:#220000;
-    border-radius:10px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:45px;
-    margin-bottom:15px;
+.card h3{
+    color:#fff;
+    margin-bottom:10px;
 }
 
-.category{
-    color:#ff2020;
-    font-size:13px;
-    margin-bottom:8px;
-}
-
-.card p{
+.type{
     color:#999;
     font-size:14px;
-    margin-top:8px;
-    line-height:1.5;
+    min-height:20px;
+}
+
+.prices{
+    margin:18px 0;
+    line-height:2;
 }
 
 .price{
-    color:#ff2020;
-    font-size:22px;
+    color:#ff3636;
     font-weight:bold;
-    margin:15px 0;
 }
 
 .buy{
     width:100%;
-    background:#e71919;
-    border:0;
-    color:white;
     padding:12px;
-    border-radius:8px;
+    border:none;
+    border-radius:9px;
+    background:#e71919;
+    color:white;
     font-weight:bold;
-    cursor:pointer;
 }
 
 .buy:hover{
     background:#ff3030;
 }
 
-.telegram{
-    text-align:center;
-    margin:45px 0;
-}
-
-.telegram a{
-    background:#1688e8;
-    color:white;
-    text-decoration:none;
-    padding:13px 22px;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    color:#777;
-    padding:30px;
-    border-top:1px solid #222;
-}
+/* modal */
 
 .modal{
+    display:none;
     position:fixed;
     inset:0;
-    background:#000c;
-    display:none;
+    background:rgba(0,0,0,.8);
+    z-index:100;
     align-items:center;
     justify-content:center;
     padding:20px;
 }
 
-.modal-box{
+.modalbox{
+    width:100%;
+    max-width:420px;
     background:#111;
     border:1px solid #333;
     border-radius:15px;
     padding:25px;
-    width:100%;
-    max-width:420px;
-    text-align:center;
 }
 
-.plan{
-    border:1px solid #333;
-    padding:13px;
-    margin-top:10px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.plan:hover{
-    border-color:#ff2020;
-}
-
-#qr{
-    width:220px;
-    height:220px;
-    background:white;
-    padding:8px;
-    margin:18px auto;
-    display:none;
-}
-
-.paid{
-    background:#16a34a;
-    border:0;
-    color:white;
-    padding:12px 18px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-    display:none;
+.modalbox h2{
+    margin-bottom:18px;
+    color:#ff2929;
 }
 
 .close{
-    background:#333;
-    color:white;
-    border:0;
-    padding:10px 20px;
-    border-radius:7px;
-    cursor:pointer;
-    margin-top:12px;
+    float:right;
+    background:none;
+    border:none;
+    color:#aaa;
+    font-size:24px;
 }
 
-@media(max-width:600px){
-    .hero h1{
-        font-size:32px;
-    }
+.plan{
+    width:100%;
+    margin:8px 0;
+    padding:13px;
+    background:#191919;
+    border:1px solid #333;
+    color:white;
+    border-radius:8px;
+    text-align:left;
+}
 
-    .search{
-        flex-direction:column;
-    }
+.plan:hover{
+    border-color:#ff2222;
+}
 
-    .search select{
-        width:100%;
-    }
+.form input{
+    width:100%;
+    padding:13px;
+    margin:7px 0;
+    background:#0b0b0b;
+    border:1px solid #333;
+    border-radius:8px;
+    color:white;
+}
+
+.form button{
+    width:100%;
+    padding:13px;
+    margin-top:8px;
+    border:0;
+    border-radius:8px;
+    background:#e71919;
+    color:white;
+    font-weight:bold;
+}
+
+.switch{
+    text-align:center;
+    margin-top:15px;
+    color:#aaa;
+}
+
+.switch span{
+    color:#ff3030;
+    cursor:pointer;
+}
+
+.userinfo{
+    display:none;
+    color:#ddd;
+    font-size:14px;
 }
 </style>
 </head>
@@ -257,466 +240,510 @@ footer{
 <body>
 
 <header>
+    <div class="logo">BIRUXY DIGITAL SHOP</div>
 
-<div class="logo">
-BIRUXY <span>DIGITAL SHOP</span>
-</div>
-
-<nav>
-<button onclick="shop()">SHOP</button>
-<button onclick="telegram()">TELEGRAM</button>
-</nav>
-
+    <nav>
+        <button class="navbtn" onclick="openLogin()">LOGIN</button>
+        <button class="navbtn" onclick="openRegister()">REGISTER</button>
+        <button class="navbtn" onclick="logout()">LOGOUT</button>
+    </nav>
 </header>
 
-
-<main class="container">
-
 <section class="hero">
-
-<h1>
-BIRUXY <span>DIGITAL SHOP</span>
-</h1>
-
-<p>
-Premium Digital Products & Services
-</p>
-
+    <h1>BIRUXY DIGITAL SHOP</h1>
+    <p>Premium Digital Products</p>
 </section>
 
+<div class="searchbox">
+    <input
+        type="text"
+        id="search"
+        placeholder="Search product..."
+        oninput="searchProducts()"
+    >
+</div>
 
-<div class="search">
+<section class="products" id="products"></section>
 
-<input
-id="search"
-placeholder="Search products..."
-oninput="showProducts()"
->
 
-<select id="category" onchange="showProducts()">
+<!-- LOGIN -->
 
-<option value="all">All Categories</option>
+<div class="modal" id="loginModal">
+    <div class="modalbox">
 
-<option value="Templates">
-Templates
-</option>
+        <button class="close" onclick="closeAll()">×</button>
 
-<option value="Resources">
-Resources
-</option>
+        <h2>Login</h2>
 
-<option value="Services">
-Services
-</option>
+        <div class="form">
 
-<option value="Tools">
-Tools
-</option>
+            <input
+                type="text"
+                id="loginUsername"
+                placeholder="Username"
+            >
 
-</select>
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
 
+            <button onclick="login()">LOGIN</button>
+
+        </div>
+
+        <div class="switch">
+            Don't have an account?
+            <span onclick="openRegister()">Register</span>
+        </div>
+
+    </div>
 </div>
 
 
-<div id="products" class="products"></div>
+<!-- REGISTER -->
 
+<div class="modal" id="registerModal">
+    <div class="modalbox">
 
-<div class="telegram">
+        <button class="close" onclick="closeAll()">×</button>
 
-<a
-href="https://t.me/biruxy7"
-target="_blank"
->
-JOIN OUR TELEGRAM
-</a>
+        <h2>New Register</h2>
 
-</div>
+        <div class="form">
 
-</main>
+            <input
+                type="text"
+                id="registerUsername"
+                placeholder="Create username"
+            >
 
+            <input
+                type="password"
+                id="registerPassword"
+                placeholder="Create password"
+            >
 
-<footer>
+            <input
+                type="password"
+                id="registerConfirm"
+                placeholder="Confirm password"
+            >
 
-© 2026 BIRUXY DIGITAL SHOP
+            <button onclick="register()">REGISTER</button>
 
-</footer>
+        </div>
 
+        <div class="switch">
+            Already have account?
+            <span onclick="openLogin()">Login</span>
+        </div>
 
-<!-- BUY WINDOW -->
-
-<div id="modal" class="modal">
-
-<div class="modal-box">
-
-<h2 id="productName">
-Product
-</h2>
-
-<p style="color:#999;margin-top:8px">
-Select your plan
-</p>
-
-
-<div class="plan" onclick="selectPlan(160)">
-3 Days — ₹160
-</div>
-
-<div class="plan" onclick="selectPlan(349)">
-7 Days — ₹349
-</div>
-
-<div class="plan" onclick="selectPlan(499)">
-10 Days — ₹499
+    </div>
 </div>
 
 
-<img id="qr">
+<!-- PRODUCT MODAL -->
 
+<div class="modal" id="productModal">
+    <div class="modalbox">
 
-<p style="color:#999;font-size:13px">
-UPI ID:
-shabablegend808@oksbi
-</p>
+        <button class="close" onclick="closeAll()">×</button>
 
+        <h2 id="selectedProduct"></h2>
 
-<button
-id="paid"
-class="paid"
-onclick="createOrder()"
->
-I HAVE PAID
-</button>
+        <button class="plan" id="p1"></button>
+        <button class="plan" id="p3"></button>
+        <button class="plan" id="p7"></button>
 
-
-<br>
-
-<button
-class="close"
-onclick="closeModal()"
->
-CLOSE
-</button>
-
-</div>
-
+    </div>
 </div>
 
 
 <script>
 
-const UPI_ID =
-"shabablegend808@oksbi";
-
-const TELEGRAM =
-"https://t.me/biruxy7";
-
-let selectedProduct = "";
-let selectedPrice = 0;
-
-
 const products = [
 
 {
-name:"Premium Digital Pack",
-category:"Resources",
-icon:"💎",
-description:
-"Premium digital resources package."
+name:"Paradox",
+type:"Root / Non-Root",
+d1:99,d3:199,d7:349
 },
 
 {
-name:"Website Template Pack",
-category:"Templates",
-icon:"🌐",
-description:
-"Modern website templates."
+name:"Rapid Core",
+type:"Root / Non-Root",
+d1:109,d3:209,d7:359
 },
 
 {
-name:"Design Resource Pack",
-category:"Resources",
-icon:"🎨",
-description:
-"Useful design resources."
+name:"Drip Client",
+type:"Non-Root",
+d1:89,d3:189,d7:339
 },
 
 {
-name:"Creator Toolkit",
-category:"Tools",
-icon:"🧰",
-description:
-"Digital tools for creators."
+name:"Drip Client",
+type:"Root",
+d1:105,d3:205,d7:355
 },
 
 {
-name:"Setup Service",
-category:"Services",
-icon:"⚙️",
-description:
-"Digital setup service."
+name:"Drip Proxy",
+type:"Root / Non-Root",
+d1:95,d3:195,d7:345
 },
 
 {
-name:"Custom Digital Package",
-category:"Services",
-icon:"📦",
-description:
-"Custom digital package."
+name:"Invisible Mods",
+type:"Root",
+d1:110,d3:220,d7:380
+},
+
+{
+name:"BR Mods",
+type:"Root / Non-Root",
+d1:102,d3:202,d7:352
+},
+
+{
+name:"Hexxx Cher",
+type:"Root",
+d1:98,d3:198,d7:348
+},
+
+{
+name:"HG Cheats",
+type:"Root / Non-Root",
+d1:108,d3:218,d7:368
+},
+
+{
+name:"Hex Blaze",
+type:"Root / Non-Root",
+d1:104,d3:214,d7:364
+},
+
+{
+name:"Bhikari Mods",
+type:"Root / Non-Root",
+d1:96,d3:196,d7:346
+},
+
+{
+name:"Neo Strike",
+type:"Root",
+d1:109,d3:229,d7:389
+},
+
+{
+name:"Reaper X Proo",
+type:"Root",
+d1:110,d3:230,d7:390
+},
+
+{
+name:"LK Team",
+type:"Root / Non-Root",
+d1:101,d3:211,d7:361
+},
+
+{
+name:"Angry Mods",
+type:"Root",
+d1:107,d3:217,d7:367
+},
+
+{
+name:"XYZ",
+type:"Non-Root",
+d1:90,d3:180,d7:330
+},
+
+{
+name:"Kos Mods",
+type:"Root",
+d1:106,d3:216,d7:366
+},
+
+{
+name:"GBox eSign",
+type:"Root / Non-Root",
+d1:99,d3:209,d7:359
+},
+
+{
+name:"SBK Mods",
+type:"Root",
+d1:103,d3:213,d7:363
+},
+
+{
+name:"Shadow X",
+type:"Root",
+d1:109,d3:229,d7:389
+},
+
+{
+name:"Pato Team",
+type:"Non-Root / Non-Root",
+d1:94,d3:194,d7:344
+},
+
+{
+name:"Silent Cheat",
+type:"Root",
+d1:108,d3:228,d7:388
+},
+
+{
+name:"Prime Hook",
+type:"Non-Root",
+d1:100,d3:200,d7:350
 }
 
 ];
 
 
-function showProducts(){
+function displayProducts(list=products){
 
-const search =
-document.getElementById("search")
-.value
-.toLowerCase();
+    const container=document.getElementById("products");
 
-const category =
-document.getElementById("category")
-.value;
+    container.innerHTML="";
 
-const box =
-document.getElementById("products");
+    list.forEach((p,index)=>{
 
-box.innerHTML = "";
+        container.innerHTML += `
 
+        <div class="card">
 
-products
-.filter(p => {
+            <h3>${p.name}</h3>
 
-const matchSearch =
-p.name
-.toLowerCase()
-.includes(search);
+            <div class="type">${p.type}</div>
 
-const matchCategory =
-category === "all" ||
-p.category === category;
+            <div class="prices">
 
-return matchSearch && matchCategory;
+                1 Day:
+                <span class="price">₹${p.d1}</span>
+                <br>
 
-})
-.forEach(p => {
+                3 Days:
+                <span class="price">₹${p.d3}</span>
+                <br>
 
-const card =
-document.createElement("div");
+                7 Days:
+                <span class="price">₹${p.d7}</span>
 
-card.className = "card";
+            </div>
 
+            <button
+                class="buy"
+                onclick="openProduct(${index})"
+            >
+                BUY NOW
+            </button>
 
-card.innerHTML = `
+        </div>
 
-<div class="icon">
-${p.icon}
-</div>
+        `;
 
-<div class="category">
-${p.category}
-</div>
-
-<h3>
-${p.name}
-</h3>
-
-<p>
-${p.description}
-</p>
-
-<div class="price">
-Starting ₹160
-</div>
-
-<button
-class="buy"
-onclick="openBuy('${p.name}')"
->
-BUY NOW
-</button>
-
-`;
-
-
-box.appendChild(card);
-
-});
+    });
 
 }
 
 
-function openBuy(product){
+function searchProducts(){
 
-selectedProduct = product;
+    const text=
+        document.getElementById("search")
+        .value
+        .toLowerCase();
 
-document.getElementById("productName")
-.innerText = product;
+    const result=products.filter(p=>
+        (p.name+" "+p.type)
+        .toLowerCase()
+        .includes(text)
+    );
 
-document.getElementById("modal")
-.style.display = "flex";
+    displayProducts(result);
+}
 
-document.getElementById("qr")
-.style.display = "none";
 
-document.getElementById("paid")
-.style.display = "none";
+function openProduct(index){
+
+    const p=products[index];
+
+    document.getElementById("selectedProduct")
+        .innerText=p.name;
+
+    document.getElementById("p1")
+        .innerText="1 Day — ₹"+p.d1;
+
+    document.getElementById("p3")
+        .innerText="3 Days — ₹"+p.d3;
+
+    document.getElementById("p7")
+        .innerText="7 Days — ₹"+p.d7;
+
+    document.getElementById("productModal")
+        .style.display="flex";
+}
+
+
+function openLogin(){
+
+    closeAll();
+
+    document.getElementById("loginModal")
+        .style.display="flex";
+}
+
+
+function openRegister(){
+
+    closeAll();
+
+    document.getElementById("registerModal")
+        .style.display="flex";
+}
+
+
+function closeAll(){
+
+    document.querySelectorAll(".modal")
+        .forEach(m=>m.style.display="none");
 
 }
 
 
-function selectPlan(price){
+async function register(){
 
-selectedPrice = price;
+    const username=
+        document.getElementById("registerUsername").value.trim();
 
+    const password=
+        document.getElementById("registerPassword").value;
 
-const upi =
-"upi://pay" +
-"?pa=" + encodeURIComponent(UPI_ID) +
-"&pn=" + encodeURIComponent(
-"BIRUXY DIGITAL SHOP"
-) +
-"&am=" + price +
-"&cu=INR";
+    const confirm=
+        document.getElementById("registerConfirm").value;
 
+    if(!username || !password){
 
-const qr =
-"https://api.qrserver.com/v1/create-qr-code/" +
-"?size=220x220&data=" +
-encodeURIComponent(upi);
+        alert("Username aur password enter karo");
 
+        return;
+    }
 
-document.getElementById("qr").src = qr;
+    if(password!==confirm){
 
-document.getElementById("qr")
-.style.display = "block";
+        alert("Password match nahi kar raha");
 
-document.getElementById("paid")
-.style.display = "inline-block";
+        return;
+    }
 
+    try{
 
-window.open(upi,"_blank");
+        const response=await fetch("/api/register",{
 
-}
+            method:"POST",
 
+            headers:{
+                "Content-Type":"application/json"
+            },
 
-async function createOrder(){
+            body:JSON.stringify({
+                username,
+                password
+            })
 
-if(!selectedProduct || !selectedPrice){
+        });
 
-alert("Please select a plan.");
+        const data=await response.json();
 
-return;
+        alert(data.message);
 
-}
+        if(data.success){
 
+            closeAll();
 
-const orderId =
-"BRX-" +
-Date.now()
-.toString(36)
-.toUpperCase();
+        }
 
+    }catch(error){
 
-try{
+        alert("Server error");
 
-const response =
-await fetch("/api/orders",{
-
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-orderId:orderId,
-
-product:selectedProduct,
-
-price:selectedPrice,
-
-status:"pending",
-
-createdAt:
-new Date().toISOString()
-
-})
-
-});
-
-
-const data =
-await response.json();
-
-
-if(!response.ok){
-
-throw new Error(
-data.message ||
-"Order failed"
-);
+    }
 
 }
 
 
-alert(
-"ORDER SUCCESSFUL\n\n" +
-"Order ID: " +
-orderId +
-"\n\n" +
-"Status: Pending Approval"
-);
+async function login(){
 
+    const username=
+        document.getElementById("loginUsername").value.trim();
 
-closeModal();
+    const password=
+        document.getElementById("loginPassword").value;
 
+    if(!username || !password){
 
-}catch(error){
+        alert("Username aur password enter karo");
 
-console.error(error);
+        return;
+    }
 
-alert(
-"Order submit nahi hua. " +
-"Backend check karo."
-);
+    try{
+
+        const response=await fetch("/api/login",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+                username,
+                password
+            })
+
+        });
+
+        const data=await response.json();
+
+        alert(data.message);
+
+        if(data.success){
+
+            localStorage.setItem(
+                "biruxyUser",
+                username
+            );
+
+            closeAll();
+
+        }
+
+    }catch(error){
+
+        alert("Server error");
+
+    }
 
 }
 
-}
 
+function logout(){
 
-function closeModal(){
+    localStorage.removeItem("biruxyUser");
 
-document.getElementById("modal")
-.style.display = "none";
-
-}
-
-
-function shop(){
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+    alert("Logout successful");
 
 }
 
 
-function telegram(){
-
-window.open(
-TELEGRAM,
-"_blank"
-);
-
-}
-
-
-showProducts();
+displayProducts();
 
 </script>
 
