@@ -1,1 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIRUXY DIGITAL SHOP</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#080808;
+    color:white;
+}
+
+header{
+    background:#111;
+    border-bottom:1px solid #292929;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ff2020;
+}
+
+nav button{
+    background:none;
+    border:0;
+    color:white;
+    margin-left:15px;
+    cursor:pointer;
+}
+
+nav button:hover{
+    color:#ff2020;
+}
+
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    padding:70px 10px 45px;
+}
+
+.hero h1{
+    font-size:44px;
+}
+
+.hero h1 span{
+    color:#ff2020;
+}
+
+.hero p{
+    color:#999;
+    margin-top:12px;
+}
+
+.search{
+    display:flex;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.search input,
+.search select{
+    background:#151515;
+    color:white;
+    border:1px solid #333;
+    padding:13px;
+    border-radius:8px;
+}
+
+.search input{
+    flex:1;
+}
+
+.search select{
+    width:180px;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111;
+    border:1px solid #292929;
+    border-radius:15px;
+    padding:20px;
+}
+
+.card:hover{
+    border-color:#ff2020;
+}
+
+.icon{
+    height:120px;
+    background:#220000;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.category{
+    color:#ff2020;
+    font-size:13px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#999;
+    font-size:14px;
+    margin-top:8px;
+    line-height:1.5;
+}
+
+.price{
+    color:#ff2020;
+    font-size:22px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.buy{
+    width:100%;
+    background:#e71919;
+    border:0;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.buy:hover{
+    background:#ff3030;
+}
+
+.telegram{
+    text-align:center;
+    margin:45px 0;
+}
+
+.telegram a{
+    background:#1688e8;
+    color:white;
+    text-decoration:none;
+    padding:13px 22px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    color:#777;
+    padding:30px;
+    border-top:1px solid #222;
+}
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:#000c;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal-box{
+    background:#111;
+    border:1px solid #333;
+    border-radius:15px;
+    padding:25px;
+    width:100%;
+    max-width:420px;
+    text-align:center;
+}
+
+.plan{
+    border:1px solid #333;
+    padding:13px;
+    margin-top:10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.plan:hover{
+    border-color:#ff2020;
+}
+
+#qr{
+    width:220px;
+    height:220px;
+    background:white;
+    padding:8px;
+    margin:18px auto;
+    display:none;
+}
+
+.paid{
+    background:#16a34a;
+    border:0;
+    color:white;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    display:none;
+}
+
+.close{
+    background:#333;
+    color:white;
+    border:0;
+    padding:10px 20px;
+    border-radius:7px;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+@media(max-width:600px){
+    .hero h1{
+        font-size:32px;
+    }
+
+    .search{
+        flex-direction:column;
+    }
+
+    .search select{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+BIRUXY <span>DIGITAL SHOP</span>
+</div>
+
+<nav>
+<button onclick="shop()">SHOP</button>
+<button onclick="telegram()">TELEGRAM</button>
+</nav>
+
+</header>
+
+
+<main class="container">
+
+<section class="hero">
+
+<h1>
+BIRUXY <span>DIGITAL SHOP</span>
+</h1>
+
+<p>
+Premium Digital Products & Services
+</p>
+
+</section>
+
+
+<div class="search">
+
+<input
+id="search"
+placeholder="Search products..."
+oninput="showProducts()"
+>
+
+<select id="category" onchange="showProducts()">
+
+<option value="all">All Categories</option>
+
+<option value="Templates">
+Templates
+</option>
+
+<option value="Resources">
+Resources
+</option>
+
+<option value="Services">
+Services
+</option>
+
+<option value="Tools">
+Tools
+</option>
+
+</select>
+
+</div>
+
+
+<div id="products" class="products"></div>
+
+
+<div class="telegram">
+
+<a
+href="https://t.me/biruxy7"
+target="_blank"
+>
+JOIN OUR TELEGRAM
+</a>
+
+</div>
+
+</main>
+
+
+<footer>
+
+© 2026 BIRUXY DIGITAL SHOP
+
+</footer>
+
+
+<!-- BUY WINDOW -->
+
+<div id="modal" class="modal">
+
+<div class="modal-box">
+
+<h2 id="productName">
+Product
+</h2>
+
+<p style="color:#999;margin-top:8px">
+Select your plan
+</p>
+
+
+<div class="plan" onclick="selectPlan(160)">
+3 Days — ₹160
+</div>
+
+<div class="plan" onclick="selectPlan(349)">
+7 Days — ₹349
+</div>
+
+<div class="plan" onclick="selectPlan(499)">
+10 Days — ₹499
+</div>
+
+
+<img id="qr">
+
+
+<p style="color:#999;font-size:13px">
+UPI ID:
+shabablegend808@oksbi
+</p>
+
+
+<button
+id="paid"
+class="paid"
+onclick="createOrder()"
+>
+I HAVE PAID
+</button>
+
+
+<br>
+
+<button
+class="close"
+onclick="closeModal()"
+>
+CLOSE
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+const UPI_ID =
+"shabablegend808@oksbi";
+
+const TELEGRAM =
+"https://t.me/biruxy7";
+
+let selectedProduct = "";
+let selectedPrice = 0;
+
+
+const products = [
+
+{
+name:"Premium Digital Pack",
+category:"Resources",
+icon:"💎",
+description:
+"Premium digital resources package."
+},
+
+{
+name:"Website Template Pack",
+category:"Templates",
+icon:"🌐",
+description:
+"Modern website templates."
+},
+
+{
+name:"Design Resource Pack",
+category:"Resources",
+icon:"🎨",
+description:
+"Useful design resources."
+},
+
+{
+name:"Creator Toolkit",
+category:"Tools",
+icon:"🧰",
+description:
+"Digital tools for creators."
+},
+
+{
+name:"Setup Service",
+category:"Services",
+icon:"⚙️",
+description:
+"Digital setup service."
+},
+
+{
+name:"Custom Digital Package",
+category:"Services",
+icon:"📦",
+description:
+"Custom digital package."
+}
+
+];
+
+
+function showProducts(){
+
+const search =
+document.getElementById("search")
+.value
+.toLowerCase();
+
+const category =
+document.getElementById("category")
+.value;
+
+const box =
+document.getElementById("products");
+
+box.innerHTML = "";
+
+
+products
+.filter(p => {
+
+const matchSearch =
+p.name
+.toLowerCase()
+.includes(search);
+
+const matchCategory =
+category === "all" ||
+p.category === category;
+
+return matchSearch && matchCategory;
+
+})
+.forEach(p => {
+
+const card =
+document.createElement("div");
+
+card.className = "card";
+
+
+card.innerHTML = `
+
+<div class="icon">
+${p.icon}
+</div>
+
+<div class="category">
+${p.category}
+</div>
+
+<h3>
+${p.name}
+</h3>
+
+<p>
+${p.description}
+</p>
+
+<div class="price">
+Starting ₹160
+</div>
+
+<button
+class="buy"
+onclick="openBuy('${p.name}')"
+>
+BUY NOW
+</button>
+
+`;
+
+
+box.appendChild(card);
+
+});
+
+}
+
+
+function openBuy(product){
+
+selectedProduct = product;
+
+document.getElementById("productName")
+.innerText = product;
+
+document.getElementById("modal")
+.style.display = "flex";
+
+document.getElementById("qr")
+.style.display = "none";
+
+document.getElementById("paid")
+.style.display = "none";
+
+}
+
+
+function selectPlan(price){
+
+selectedPrice = price;
+
+
+const upi =
+"upi://pay" +
+"?pa=" + encodeURIComponent(UPI_ID) +
+"&pn=" + encodeURIComponent(
+"BIRUXY DIGITAL SHOP"
+) +
+"&am=" + price +
+"&cu=INR";
+
+
+const qr =
+"https://api.qrserver.com/v1/create-qr-code/" +
+"?size=220x220&data=" +
+encodeURIComponent(upi);
+
+
+document.getElementById("qr").src = qr;
+
+document.getElementById("qr")
+.style.display = "block";
+
+document.getElementById("paid")
+.style.display = "inline-block";
+
+
+window.open(upi,"_blank");
+
+}
+
+
+async function createOrder(){
+
+if(!selectedProduct || !selectedPrice){
+
+alert("Please select a plan.");
+
+return;
+
+}
+
+
+const orderId =
+"BRX-" +
+Date.now()
+.toString(36)
+.toUpperCase();
+
+
+try{
+
+const response =
+await fetch("/api/orders",{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+orderId:orderId,
+
+product:selectedProduct,
+
+price:selectedPrice,
+
+status:"pending",
+
+createdAt:
+new Date().toISOString()
+
+})
+
+});
+
+
+const data =
+await response.json();
+
+
+if(!response.ok){
+
+throw new Error(
+data.message ||
+"Order failed"
+);
+
+}
+
+
+alert(
+"ORDER SUCCESSFUL\n\n" +
+"Order ID: " +
+orderId +
+"\n\n" +
+"Status: Pending Approval"
+);
+
+
+closeModal();
+
+
+}catch(error){
+
+console.error(error);
+
+alert(
+"Order submit nahi hua. " +
+"Backend check karo."
+);
+
+}
+
+}
+
+
+function closeModal(){
+
+document.getElementById("modal")
+.style.display = "none";
+
+}
+
+
+function shop(){
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+function telegram(){
+
+window.open(
+TELEGRAM,
+"_blank"
+);
+
+}
+
+
+showProducts();
+
+</script>
+
+</body>
+</html>
